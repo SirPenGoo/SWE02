@@ -1,11 +1,11 @@
 // SWE02_HUE_01.cpp : Diese Datei enthält die Funktion "main". Hier beginnt und endet die Ausführung des Programms.
 //
 
-#include "stdio.h"
+#include <iostream>
 
 int main()
 {
-	printf("Hello world");
+    std::cout << "Hello World!\n";
 }
 
 // Programm ausführen: STRG+F5 oder "Debuggen" > Menü "Ohne Debuggen starten"
