@@ -1,0 +1,19 @@
+/*==========================================================
+|	Assignment:		SWE02_HUEXX
+|	File:			XXX.c
+|	Author:			Maximilian Erlmoser
+|	University:		FH Salzburg
+|	Semester:		ITS-B SS20
+|	Date:			XX.XX.2020
+|-----------------------------------------
+|	Description:	Read a file with numbers, 
+|					sort them and put them on screen.
+|					Use the qsort() function to sort.
+*=========================================================*/
+
+#include "stdio.h"
+#include "stdlib.h"
+
+int main() {
+
+}
