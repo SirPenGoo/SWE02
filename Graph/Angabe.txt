@@ -1,0 +1,66 @@
+Liebe Kolleg_innen!
+
+Da kein Präsenzunterricht stattfinden kann und eine Abhaltung online nur mit etwas Vorlauf sinnvoll ist schlage ich für die Einheiten in der kommenden Woche folgende Herangehensweise vor (BITTE GENAU LESEN!!!):
+
+Thema meines ersten Blocks sind:
+
+* Zeiger
+* Dynamische Speicherverwaltung
+* Strukturen
+
+Ich bitte daher folgende Dokumente im Selbststudium durchzuarbeiten:
+1. http://openbook.rheinwerk-verlag.de/c_von_a_bis_z/012_c_zeiger_001.htm
+2. http://openbook.rheinwerk-verlag.de/c_von_a_bis_z/014_c_dyn_speicherverwaltung_001.htm
+3. http://openbook.rheinwerk-verlag.de/c_von_a_bis_z/015_c_strukturen_001.htm
+
+Jede_r soll im Anschluss ein C-Programm mit Header-Datei (http://openbook.rheinwerk-verlag.de/c_von_a_bis_z/009_c_funktionen_019.htm) erstellen das Elemente eines Graphen mit int-Value) und einer Kante (Verbindung zu einem anderen Element) realisiert.
+
+struct node
+{
+   struct node * edge;
+   int val;
+};
+
+struct node * makenode(int val); //returns NULL if fails else new node with val and NULL as edge
+struct node * connectnodes(struct node * root, struct node * leaf); //returns NULL if fails else root
+
+Für Fragen stehe ich jeweils die ersten 15 Minuten der LVA via Hangouts Meet zur Vefügung oder per Mail im Laufe der nächsten Woche.
+
+Dienstag 13h30, Gruppe c: https://meet.google.com/asj-voku-ocm
+Dienstag 15h00, Gruppe d: https://meet.google.com/rgt-xgur-ith
+Mittwoch 8h15, WIN A: https://meet.google.com/ews-jtdy-ixa
+Mittwoch 14h15, WIN B: https://meet.google.com/ncr-rjea-xrm
+Donnerstag 10h00, Gruppe b: https://meet.google.com/aey-aian-yoz
+Donnerstag 11h45, Gruppe a: https://meet.google.com/hpe-rcku-tmv
+Samstag 8h15, BB A: https://meet.google.com/jki-rywq-nsc
+Samstag 10h00, BB B: https://meet.google.com/zzf-tedg-wjt
+
+Es besteht keine Teilnahmepflicht an den Frageterminen!
+Es kann auch an einem Termin einer anderen Gruppe teilgenommen werden.
+
+Abgabe des Programmes ist Pflicht und muss bis 27.3. per Mail erfolgen.
+Es gilt auschließlich kompilierbarer Quellcode ohne Fehlermeldungen oder Warnings.
+Bitte daher um Einbindung folgender main-Funktion:
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "yourheader.h" // Bitte anpassen!!!
+
+int main(int argc, char * argv[])
+{
+   struct node * root = makenode(100);
+   if(root)
+   {
+      struct node * child = makenode(10);
+      if(child)
+      {
+         root->edge = child;
+         printf("%d\n", root->edge->val);
+      }
+      printf("%d\n", root->val);
+   }
+   return 0;
+}
+
+Schöne Grüße,
+Simon...
