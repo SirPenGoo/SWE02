@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-//#include "yourheader.h" // Bitte anpassen!!!
+#include "stdio.h"
+#include "stdlib.h"
+#include "graph.h"
 
 int main(int argc, char* argv[])
 {

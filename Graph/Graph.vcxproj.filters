@@ -20,8 +20,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Angabe.txt">
-      <Filter>Ressourcendateien</Filter>
-    </Text>
+    <ClInclude Include="graph.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
