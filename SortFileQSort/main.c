@@ -4,7 +4,7 @@
 |	Author:			Maximilian Erlmoser
 |	University:		FH Salzburg
 |	Semester:		ITS-B SS20
-|	Date:			19.03.2020
+|	Date:			23.03.2020
 |-----------------------------------------
 |	Description:	Read a file with numbers, 
 |					sort them and put them on screen.
@@ -40,17 +40,29 @@ int main(int argc, char * argv[]) {
 	while (fscanf(datei, "%d", &arr[i]) == 1)
 		i++;
 
-	for (i = 1; i < (argc - 1); i++) {
-		if (strcmp(argv[i], "-h")) {
+	for (i = 1; i < argc; i++) {
+		if (strcmp(argv[i], "-h")==0) {
 			help();
 			return;
 		}
 
-		else if (strcmp(argv[i], "-a")) {
+		else if (strcmp(argv[i], "-a")==0) {
 			qsort(arr, ANZ, sizeof(int), compa);
+			fclose(datei);
+			output(arr);
+			return;
 		}
-		else if (strcmp(argv[i], "-d")) {
+		else if (strcmp(argv[i], "-d")==0) {
 			qsort(arr, ANZ, sizeof(int), compd);
+			fclose(datei);
+			output(arr);
+			return;
+		}
+		else {
+			qsort(arr, ANZ, sizeof(int), compa);
+			fclose(datei);
+			output(arr);
+			return;
 		}
 	}
 	
@@ -75,7 +87,7 @@ void help() {
 	printf("-d\tSorts descending\n");
 }
 
-int compa(const void* a, const void* b)
+int compd(const void* a, const void* b)
 {
 	int* pa = (int*)a;
 	int* pb = (int*)b;
@@ -83,7 +95,7 @@ int compa(const void* a, const void* b)
 	return (*pb - *pa);
 }
 
-int compd(const void* a, const void* b)
+int compa(const void* a, const void* b)
 {
 	int* pa = (int*)a;
 	int* pb = (int*)b;
