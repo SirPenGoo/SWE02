@@ -1,8 +1,19 @@
-#include <stdio.h>
-#include <conio.h>
-#include <locale.h>
-#include <stdbool.h>
-#include <string.h>
+
+/*==========================================================
+|	Assignment:		SWE02_HUE02
+|	File:			cp.c
+|	Author:			Maximilian Erlmoser
+|	University:		FH Salzburg
+|	Semester:		ITS-B SS20
+|	Date:			23.03.2020
+|-----------------------------------------
+|	Description:	Copie a file like the cp command
+*=========================================================*/
+
+
+#include "stdio.h"
+#include "locale.h"
+#include "string.h"
 
 #pragma warning(disable:4996)
 
