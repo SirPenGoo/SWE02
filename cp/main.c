@@ -7,7 +7,7 @@
 |	Semester:		ITS-B SS20
 |	Date:			23.03.2020
 |-----------------------------------------
-|	Description:	Copie a file like the cp command
+|	Description:	Copy a file like the cp command
 *=========================================================*/
 
 
