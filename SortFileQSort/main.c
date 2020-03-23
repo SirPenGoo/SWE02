@@ -4,7 +4,7 @@
 |	Author:			Maximilian Erlmoser
 |	University:		FH Salzburg
 |	Semester:		ITS-B SS20
-|	Date:			10.03.2020
+|	Date:			19.03.2020
 |-----------------------------------------
 |	Description:	Read a file with numbers, 
 |					sort them and put them on screen.
@@ -13,38 +13,69 @@
 
 
 #define _CRT_SECURE_NO_DEPRECATE
-#include <stdio.h>
-#include <conio.h>
-#include <locale.h>
-#include <stdbool.h>
-#include <string.h>
-#define ANZ 5
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
+#define ANZ 20
 
-int a[ANZ] = { 34, 4, 55, 23, 6 };
+int compa(const void* a, const void* b);
+int compd(const void* a, const void* b);
+void help();
+void output(int a[]);
 
-int comp(const void* a, const void* b);
-int ausgabe(int a[ANZ]);
+int main(int argc, char * argv[]) {
+	int i=0;
+	FILE* datei;
+	int arr[20];
 
-//Main
+	if (argc < 2) {
+		help();
+		return;
+	}
 
-void main()
-{
-	setlocale(LC_ALL, "de_DE");
+	datei = fopen(argv[argc - 1], "r");
+	if (datei == NULL)
+		return 1;
 
-	printf("Unsortiert\n");
-	ausgabe(a);
+	while (fscanf(datei, "%d", &arr[i]) == 1)
+		i++;
 
-	qsort(a, ANZ, sizeof(int), comp);
+	for (i = 1; i < (argc - 1); i++) {
+		if (strcmp(argv[i], "-h")) {
+			help();
+			return;
+		}
 
-	printf("Sortiert\n");
-	ausgabe(a);
+		else if (strcmp(argv[i], "-a")) {
+			qsort(arr, ANZ, sizeof(int), compa);
+		}
+		else if (strcmp(argv[i], "-d")) {
+			qsort(arr, ANZ, sizeof(int), compd);
+		}
+	}
+	
+	fclose(datei);
+	output(arr);
+	return;
 }
 
-//Functions
+void output(int a[]) {
+	for (int i = 0; i < ANZ; i++) {
+		printf("%d ", a[i]);
+	}
+}
 
+void help() {
+	printf("Program descrption: \n");
+	printf("Reads file with max. 20 int-numbers and prints them sorted. \n\n");
+	printf("How to open: SortFileCp [Option] File \n\n");
+	printf("Option\tDescription\n");
+	printf("-h\tPrints program description\n");
+	printf("-a\tSorts ascending (default)\n");
+	printf("-d\tSorts descending\n");
+}
 
-
-int comp(const void* a, const void* b)
+int compa(const void* a, const void* b)
 {
 	int* pa = (int*)a;
 	int* pb = (int*)b;
@@ -52,13 +83,10 @@ int comp(const void* a, const void* b)
 	return (*pb - *pa);
 }
 
-
-int ausgabe(int a[ANZ])
+int compd(const void* a, const void* b)
 {
-	for (int i = 0; i < ANZ; i++)
-	{
-		printf("%d:  %d\n", i, a[i]);
-	}
+	int* pa = (int*)a;
+	int* pb = (int*)b;
 
-	return 0;
+	return (*pa - *pb);
 }
