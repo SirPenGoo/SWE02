@@ -1,3 +1,16 @@
+/*==========================================================
+|	Assignment:		SWE02_HUE02KR
+|	File:			bintree.h
+|	Author:			Maximilian Erlmoser
+|	University:		FH Salzburg
+|	Semester:		ITS-B SS20
+|	Date:			31.03.2020
+|-----------------------------------------
+|	Description:	Header for functions to build a binary
+					tree and to print the tree.
+*=========================================================*/
+
+
 #ifndef BINTREE_H
 #define BINTREE_H
 
