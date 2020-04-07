@@ -34,17 +34,16 @@ int cp(char* src, char* dsc)
 	}
 	else
 	{
+		fseek(fsrc, 0L, SEEK_END);
 		size = ftell(fsrc);
+		fseek(fsrc, 0L, SEEK_SET);
 
 		str = malloc(size + 1);
 		str[0] = '\0';
 
 		buffer = malloc(size + 1);
 
-		while (fgets(buffer, size, fsrc) != NULL)
-		{
-			strcat(str, buffer);
-		}
+		fread(str, strlen(buffer) + 1, 1, fsrc);
 
 		fputs(str, fdest);
 
