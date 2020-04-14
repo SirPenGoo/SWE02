@@ -28,10 +28,7 @@ int cp(char* src, char* dsc)
 	fdest = fopen(dsc, "w");
 
 	if (fsrc == NULL || fdest == NULL)
-	{
-		printf("Error - Could not open or create file!");
 		return -1;
-	}
 	else
 	{
 		fseek(fsrc, 0L, SEEK_END);
@@ -42,6 +39,9 @@ int cp(char* src, char* dsc)
 		str[0] = '\0';
 
 		buffer = malloc(size + 1);
+
+		if (buffer == 0)
+			return -1;
 
 		fread(str, strlen(buffer) + 1, 1, fsrc);
 
@@ -66,8 +66,8 @@ void main(int argc, char* argv[])
 	char* src = argv[1];
 	char* dst = argv[2];
 
-	cp(src, dst);
-
-	printf("Copied file from %s to %s", src, dst);
-
+	if (cp(src, dst) < 0)
+		printf("Error - Could not open or create file!");
+	else
+		printf("Copied file from %s to %s", src, dst);
 }
