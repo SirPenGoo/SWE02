@@ -4,7 +4,7 @@
 |	Author:			Maximilian Erlmoser
 |	University:		FH Salzburg
 |	Semester:		ITS-B SS20
-|	Date:			18.04.2020
+|	Date:			20.04.2020
 |-----------------------------------------
 |	Description:	Manages addresses from file
 *=========================================================*/
