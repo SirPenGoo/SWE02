@@ -1,3 +1,15 @@
+/*==========================================================
+|	Assignment:		SWE02_HUE04FO
+|	File:			SList.c
+|	Author:			Maximilian Erlmoser
+|	University:		FH Salzburg
+|	Semester:		ITS-B SS20
+|	Date:			03.05.2020
+|-----------------------------------------
+|	Description:	Double linked list functions
+*=========================================================*/
+
+
 #include "SList.h"
 #include "stdlib.h"
 #include "stdio.h"
